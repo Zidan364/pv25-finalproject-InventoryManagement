@@ -30,6 +30,7 @@ class InventoryApp(QMainWindow):
         self.ui.btnTambah.clicked.connect(self.tambah_data_inventory)
         self.ui.btnHapus.clicked.connect(self.hapus_data_inventory)
         self.ui.btnEdit.clicked.connect(self.edit_data_inventory)
+        self.ui.btnCari.clicked.connect(self.cari_data)
         self.ui.btnExportCSV.clicked.connect(self.ekspor_ke_csv)
         self.ui.tableInventory.cellClicked.connect(self.pilih_data)
 
@@ -140,6 +141,23 @@ class InventoryApp(QMainWindow):
         edit_data(id_barang, nama, kategori, tanggal, status, catatan)
         QMessageBox.information(self, "Sukses", "Data berhasil diperbarui!")
         self.load_data_to_table()
+
+    def cari_data(self):
+        keyword = self.ui.lineSearch.text().lower()
+        semua_data = ambil_semua_data()
+        hasil_filter = [
+            row for row in semua_data
+            if keyword in row[1].lower() or keyword in row[2].lower()
+        ]
+
+        self.ui.tableInventory.setRowCount(0)
+        for row_index, row_data in enumerate(hasil_filter):
+            self.ui.tableInventory.insertRow(row_index)
+            for col_index, value in enumerate(row_data):
+                self.ui.tableInventory.setItem(row_index, col_index, QTableWidgetItem(str(value)))
+
+        self.ui.tableInventory.resizeColumnsToContents()
+        self.ui.tableInventory.horizontalHeader().setStretchLastSection(True)
 
     def pilih_data(self, row, col):
         self.ui.lineNamaBarang.setText(self.ui.tableInventory.item(row, 1).text())

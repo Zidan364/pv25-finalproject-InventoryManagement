@@ -2,13 +2,19 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>393</width>
+    <height>434</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>Inventory Management Mini App</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
-
-    <!-- Form Layout -->
     <item>
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
@@ -21,7 +27,6 @@
       <item row="0" column="1">
        <widget class="QLineEdit" name="lineNamaBarang"/>
       </item>
-
       <item row="1" column="0">
        <widget class="QLabel" name="labelKategori">
         <property name="text">
@@ -32,7 +37,6 @@
       <item row="1" column="1">
        <widget class="QComboBox" name="comboKategori"/>
       </item>
-
       <item row="2" column="0">
        <widget class="QLabel" name="labelTanggal">
         <property name="text">
@@ -47,7 +51,6 @@
         </property>
        </widget>
       </item>
-
       <item row="3" column="0">
        <widget class="QLabel" name="labelStatus">
         <property name="text">
@@ -69,7 +72,6 @@
         </item>
        </widget>
       </item>
-
       <item row="4" column="0">
        <widget class="QLabel" name="labelCatatan">
         <property name="text">
@@ -82,17 +84,31 @@
       </item>
      </layout>
     </item>
-
-    <!-- Tombol Aksi -->
     <item>
      <layout class="QHBoxLayout" name="buttonLayout">
-      <item><widget class="QPushButton" name="btnTambah"><property name="text"><string>Tambah</string></property></widget></item>
-      <item><widget class="QPushButton" name="btnEdit"><property name="text"><string>Edit</string></property></widget></item>
-      <item><widget class="QPushButton" name="btnHapus"><property name="text"><string>Hapus</string></property></widget></item>
+      <item>
+       <widget class="QPushButton" name="btnTambah">
+        <property name="text">
+         <string>Tambah</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnEdit">
+        <property name="text">
+         <string>Edit</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnHapus">
+        <property name="text">
+         <string>Hapus</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
-
-    <!-- Pencarian -->
     <item>
      <layout class="QHBoxLayout" name="searchLayout">
       <item>
@@ -111,13 +127,9 @@
       </item>
      </layout>
     </item>
-
-    <!-- Tabel -->
     <item>
      <widget class="QTableWidget" name="tableInventory"/>
     </item>
-
-    <!-- Ekspor -->
     <item>
      <widget class="QPushButton" name="btnExportCSV">
       <property name="text">
@@ -125,39 +137,55 @@
       </property>
      </widget>
     </item>
-
    </layout>
   </widget>
-
-  <!-- Menu Bar -->
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
-     <x>0</x><y>0</y><width>800</width><height>22</height>
+     <x>0</x>
+     <y>0</y>
+     <width>393</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
-    <property name="title"><string>File</string></property>
+    <property name="title">
+     <string>File</string>
+    </property>
     <addaction name="actionSimpan"/>
     <addaction name="actionEkspor"/>
     <addaction name="actionKeluar"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
-    <property name="title"><string>Help</string></property>
+    <property name="title">
+     <string>Help</string>
+    </property>
     <addaction name="actionTentang"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
   </widget>
-
-  <!-- Status Bar -->
   <widget class="QStatusBar" name="statusbar"/>
-
-  <!-- Actions -->
-  <action name="actionSimpan"><property name="text"><string>Simpan</string></property></action>
-  <action name="actionEkspor"><property name="text"><string>Ekspor ke CSV</string></property></action>
-  <action name="actionKeluar"><property name="text"><string>Keluar</string></property></action>
-  <action name="actionTentang"><property name="text"><string>Tentang</string></property></action>
+  <action name="actionSimpan">
+   <property name="text">
+    <string>Simpan</string>
+   </property>
+  </action>
+  <action name="actionEkspor">
+   <property name="text">
+    <string>Ekspor ke CSV</string>
+   </property>
+  </action>
+  <action name="actionKeluar">
+   <property name="text">
+    <string>Keluar</string>
+   </property>
+  </action>
+  <action name="actionTentang">
+   <property name="text">
+    <string>Tentang</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
